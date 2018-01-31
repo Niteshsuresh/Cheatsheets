@@ -57,9 +57,29 @@ print(any([True,True, False])) #This function return 'True' if any values in ite
 print(bin(11)) # converts integer value to binary
 print(bool(0)) # converts a given value to boolean
 print(chr(71)) # return a Unicode char for the given index represented using integer index. Refer https://unicode-table.com/en/
-classmethod(func) #convert the given function to a classmethod
-staticmethod(func) # convert the given function to a static method.
+print(len("This is Nitesh Suresh."))
+print(int("30")) #converts string value to integer
+print(str(332)) #converts integer and other types to string
 
+## classmethod and staticmethod inbuilt functions
+class Note:
+    def __init__(self, text):
+        self.text = text
+
+    def printMessage(self):
+        print(self.text)
+
+    def concatNotes(*notes):
+        return notes
+
+    def addText(cls, text):
+        return cls(text)
+
+Note.addMyText = classmethod(Note.addText) #convert the given function to a classmethod
+Note.concatNotes = staticmethod(Note.concatNotes) # convert the given function to a static method.
+
+Note.addMyText("My Text").printMessage()
+print(Note.concatNotes(["Hi", "Hello", "World"]))
 #staticmethods are associated to class instance or objects and works only with receiving parameters
 #classmethods are associated to class itself.
 
