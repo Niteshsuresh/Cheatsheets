@@ -1,0 +1,95 @@
+
+#simple multiplication
+print(2 * 3)
+#poweroff operation
+print( 2 ** 3)
+
+#prints decimal value
+print(45 / 7)
+# prints integer value
+print(45 // 7)
+
+# This is simple function
+def helloworld():
+    return "hi"
+
+x = """This is multi-line string in double quotes
+example""";
+
+y = '''This is multi-line string in single quotes example''';
+
+print(helloworld())
+#print(x, y)
+
+# A simple demonstration of using function as an arguments to a function
+def square(x, y):
+    return x * y
+
+def total(square, x , y):
+    return square(x, y) + y
+
+print(total(square, 4, 5))
+
+# Modifying of a variable scoped at global level using keyword 'global'
+def modifyX():
+    global x
+    x = x + "Hello"
+    return x
+
+print(modifyX())
+
+def subtract(x, y):
+    return y - x
+
+#Calling a function with keyword arguments
+print(subtract(y = 45, x = 54))
+
+#Lambda expression alternative to classic function declaration
+myfunc = lambda x:x + 30
+print(myfunc(3))
+
+
+# Built-in functions
+print(max(45, 54))
+print(abs(-45))
+print(all([True,True, False])) #This function return 'True' if all values in iterable is True
+print(any([True,True, False])) #This function return 'True' if any values in iterable is True
+print(bin(11)) # converts integer value to binary
+print(bool(0)) # converts a given value to boolean
+print(chr(71)) # return a Unicode char for the given index represented using integer index. Refer https://unicode-table.com/en/
+classmethod(func) #convert the given function to a classmethod
+staticmethod(func) # convert the given function to a static method.
+
+#staticmethods are associated to class instance or objects and works only with receiving parameters
+#classmethods are associated to class itself.
+
+# Below are classmethod and staticmethod created through annotation (@)
+class Dates:
+    def __init__(self, date):
+        self.date = date
+
+    def getDate(self):
+        return self.date
+
+    @classmethod
+    def makeDate(cls, val):
+        return cls(val)
+
+    @staticmethod
+    def toDashDate(date):
+        return date.replace("/", "-")
+
+class DatesWithSlashes(Dates):
+    def getDate(self):
+        return Dates.toDashDate(self.date)
+
+date = Dates("15-12-2016")
+dateFromDB = DatesWithSlashes("15/12/2016")
+
+if(date.getDate() == dateFromDB.getDate()):
+    print("Equal")
+else:
+    print("Unequal")
+
+
+print(Dates.makeDate("3/3/2018").getDate())
