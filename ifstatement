@@ -1,0 +1,7 @@
+x = 42
+if 20 < x < 50:
+    print("greater than 20 and less than 50")
+elif x < 60:
+    print("x is less than 60")
+else:
+    print("at greatest or at the least")       
