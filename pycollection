@@ -1,0 +1,72 @@
+#range
+print(list(range(5))) #output [0,1,2,3,4,5]
+print(list(range(4, 5))) # output [4,5]
+print(list(range(0, 5, 2))) #output [0, 2, 4]
+
+lis = [0, 1, 3, 4]
+print(lis[:-1]) #prints [0,1,2,3] values starting from index 0 to last but one element
+print(lis[-1:]) #prints [4] values starting from index 0 to last but one element
+print(lis * 2) #prints [0,1,3,4,0,1,3,4]
+
+a = [1, 2, 3, 4]
+b = [5, 6]
+c = a + b
+print(c)
+print(a)
+print(b)
+
+d = list(range(10))
+print(d[0:6:1]) # prints from 0 to 5 i.e 6 elements with intervals of 1
+print(d[0:6:3]) # prints [0,3] becoz of interval 3
+
+print(d[::-1]) # negative sign with interval prints values in reverse order
+
+if 1 in lis:
+    print("No 1 exist in the list")
+else:
+    print("Doesn't exist")
+
+lis.append(5) #Adding new element in the list
+print(lis)
+
+print(list(zip([1, 2, 3], ['a', 'b']))) #zip takes two list and returns pair of list. [(1, 'a'), (2, 'b')]
+
+#Python Datatypes
+#int, float, complex are all defined as class
+print(type(34)) #prints as int class
+print(type(2.3)) #prints as float class
+
+print((1.1 + 2.2) == 3.3)
+
+from decimal import Decimal as D
+print(type(D(4.5))) #Decimal
+# Output: Decimal('3.3')
+print(D('1.1') + D('2.2') == D('3.3'))
+
+import random
+
+print(random.randrange(0, 30)) #get randomly any number between 0 to 30
+
+x = ['Nitesh', 'Rakesh', 'Vidyarani']
+print(random.choice(x)) #makes a random choice
+random.shuffle(x)
+print(x)
+
+
+#Nested List with Nested indexing
+personList = ['Nitesh', ['Rakesh', 25, 'Male']]
+print(personList[0])
+print("Name",personList[1][0])
+print("Age",personList[1][1])
+print("Gender",personList[1][2])
+
+values = [0,1]
+values.append(2) # adding one item
+values.extend([4,5]) #adding more than one item to the list
+print(values)
+print([0,1,2] + [3, 4]) #adding more than one item to the list
+print(["item"] * 3) #duplicating the values in list for the n number of times
+print(['item'+str(x) for x in range(0,3)]) #prints ['item0','item1', 'item2']
+print(len(values)) #prints
+values.insert(1, 34) #inserting element at desired location
+print(len(values))
